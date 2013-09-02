@@ -1,0 +1,22 @@
+{
+    "name": "easybib/composer-newrelic",
+    "type": "composer-plugin",
+    "description": "A composer plugin that allows to tag composer runs in New Relic",
+    "keywords": ["newrelic", "monitoring", "performance", "composer", "composer-plugin", "plugin"],
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Till Klampaeckel",
+            "email": "till@php.net",
+            "homepage": "http://till.klampaeckel.de/"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "EasyBib\\Composer\\NewRelic\\": "src/"
+        }
+    },
+    "extra": {
+        "class": "EasyBib\\Composer\\NewRelic\\NewRelicPlugin"
+    }
+}
