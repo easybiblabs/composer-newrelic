@@ -2,7 +2,7 @@
 
 Usage:
 
-    $ NEWRELIC_APPNAME ./composer.phar install
+    $ NEWRELIC_APPNAME=example.org ./composer.phar install
 
 To install:
 
