@@ -7,6 +7,7 @@ use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Plugin\PluginEvents;
+use Composer\Plugin\CommandEvent;
 
 /**
  * Composer Plugin that tags composer in New Relic
@@ -32,6 +33,24 @@ class NewRelicPlugin implements PluginInterface, EventSubscriberInterface
     {
         $this->composer = $composer;
         $this->io = $io;
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return array(
+            PluginEvents::COMMAND => array(
+                array('onCommand', 0),
+            )
+        );
+    }
+
+    /**
+     * @param CommandEvent $event
+     *
+     * @return void
+     */
+    public function onCommand(CommandEvent $event)
+    {
 
         if (false === extension_loaded('newrelic')) {
             if ($this->io->isVerbose()) {
@@ -40,16 +59,6 @@ class NewRelicPlugin implements PluginInterface, EventSubscriberInterface
             return;
         }
 
-        $this->tagIt();
-    }
-
-    static function getSubscribedEvents()
-    {
-        return array();
-    }
-
-    private function tagIt()
-    {
         $appName = ini_get('newrelic.appname');
         if (empty($appName)) {
             $appName = getenv('NEWRELIC_APPNAME');
@@ -60,10 +69,7 @@ class NewRelicPlugin implements PluginInterface, EventSubscriberInterface
             return;
         }
 
-        $command = @$_SERVER['argv'][1];
-        if (empty($command)) {
-            $command = "unknown";
-        }
+        $command = $event->getCommandName();
 
         if ($this->io->isVerbose()) {
             $this->io->write("<debug>Tagging composer run.</debug>");
