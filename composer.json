@@ -16,6 +16,9 @@
             "EasyBib\\Composer\\NewRelic\\": "src/"
         }
     },
+    "require": {
+        "composer-plugin-api": "1.0.0"
+    },
     "extra": {
         "class": "EasyBib\\Composer\\NewRelic\\NewRelicPlugin"
     }
