@@ -1,4 +1,17 @@
 <?php
+/*
+ * This file is part of easybib/opswork-provider
+ *
+ * (c) Imagine Easy Solutions, LLC
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ *
+ * @author   Till Klampaeckel <till@php.net>
+ * @license  BSD-2-Clause
+ * @link     http://www.imagineeasy.com
+ */
+ 
 namespace EasyBib\Composer\NewRelic;
 
 use Composer\Composer;
