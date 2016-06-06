@@ -3,7 +3,7 @@
     "type": "composer-plugin",
     "description": "A composer plugin that allows to tag composer runs in New Relic",
     "keywords": ["newrelic", "monitoring", "performance", "composer", "composer-plugin", "plugin"],
-    "license": "BSD-2-Clause",
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Till Klampaeckel",
