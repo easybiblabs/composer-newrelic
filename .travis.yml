@@ -1,8 +1,8 @@
 language: php
 
 php:
-  - 5.3
-  - 5.4
+  - 5.6
+  - 7
 
 before_script:
   - pear install PHP_CodeSniffer
@@ -14,3 +14,6 @@ script:
   - composer validate
   - phpcs --standard=psr2 src/
 
+branches:
+  only:
+    - master
